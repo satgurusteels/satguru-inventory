@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Satguru Steels – Inventory</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f5f6f8;--c:#fff;--t:#1b2430;--m:#6b7686;--b:#dde1e8;--a:#1f5fbf;--r:#c0392b;--o:#d98a00;--g:#1f8a4c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14181f;--c:#1c222b;--t:#e6e9ee;--m:#8c97a8;--b:#2c3542;--a:#5b9bff;--r:#ff6b5b;--o:#f0a830;--g:#4cc07a}}
+:root[data-theme=dark]{--bg:#14181f;--c:#1c222b;--t:#e6e9ee;--m:#8c97a8;--b:#2c3542;--a:#5b9bff;--r:#ff6b5b;--o:#f0a830;--g:#4cc07a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px system-ui,Arial,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 14px;background:var(--c);border-bottom:1px solid var(--b)}
+header h1{font-size:16px;margin:0 8px 0 0}.demo{background:var(--o);color:#000;font-size:11px;padding:2px 6px;border-radius:4px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:8px 14px}nav button{border:1px solid var(--b);background:var(--c);color:var(--t);padding:6px 10px;border-radius:6px;cursor:pointer}nav button.on{background:var(--a);color:#fff;border-color:var(--a)}
+main{padding:0 14px 30px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:8px 0}
+.k{background:var(--c);border:1px solid var(--b);border-radius:8px;padding:10px;cursor:pointer}.k small{color:var(--m);display:block}.k b{font-size:18px}.k.bad b{color:var(--r)}
+.card{background:var(--c);border:1px solid var(--b);border-radius:8px;padding:12px;margin:8px 0}h2{font-size:15px;margin:4px 0 8px}
+.w{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12.5px}th,td{padding:5px 7px;border-bottom:1px solid var(--b);text-align:left;white-space:nowrap}th{color:var(--m);position:sticky;top:0;background:var(--c)}tr.cl{cursor:pointer}tr.cl:hover{background:var(--bg)}td.n,th.n{text-align:right}
+input,select,textarea,button{font:inherit;color:var(--t);background:var(--c);border:1px solid var(--b);border-radius:6px;padding:6px}button.p{background:var(--a);color:#fff;border-color:var(--a);cursor:pointer}
+.f{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.f label{display:flex;flex-direction:column;font-size:11px;color:var(--m);gap:2px}
+.bar{position:relative;display:flex;justify-content:space-between;padding:4px 6px;margin:2px 0;cursor:pointer;border-radius:4px;overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--a);opacity:.18}.bar span,.bar b{position:relative;font-weight:400}
+.tag{padding:1px 6px;border-radius:9px;font-size:11px;background:var(--b)}.hi{color:var(--r)}.md{color:var(--o)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));padding:8px 14px;border-radius:8px;color:#fff;display:none;z-index:9}
+.shell{display:flex;align-items:flex-start}.shell nav{display:block;width:210px;flex:none;position:sticky;top:0;padding:12px 8px;min-height:100vh;background:var(--c);border-right:1px solid var(--b)}
+.shell nav button{display:block;width:100%;text-align:left;border:0;background:none;padding:7px 10px;margin:1px 0}.shell nav button.on{background:var(--a);color:#fff}.shell main{flex:1;min-width:0;padding:16px 20px 40px}
+.brand{font-weight:700;font-size:15px;padding:4px 10px 10px}.sh{font-size:10px;letter-spacing:.08em;color:var(--m);padding:10px 10px 2px}
+.top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.fb{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.fb button.on{background:var(--a);color:#fff;border-color:var(--a)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:12px}.kp{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px 16px;cursor:pointer}.kp small{color:var(--m);display:block;font-size:12px}.kp b{font-size:26px;font-weight:650;display:block;margin:2px 0}.kp em{font-style:normal;font-size:12px;color:var(--m)}.kp.bad b{color:var(--o)}
+.hb{display:flex;height:26px;border-radius:6px;overflow:hidden;margin:6px 0 10px}.hb div{cursor:pointer}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}.card h2 small,.card small{color:var(--m);font-weight:400}.sum{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:6px;color:var(--m)}.sum b{color:var(--t);margin-left:4px}.gn b{color:var(--g)}.rd b{color:var(--r)}
+.chip{background:var(--b);border-radius:12px;padding:3px 9px;cursor:pointer;font-size:12px}.ag{margin-bottom:8px}.al{padding:5px 8px;margin:3px 0;border-left:3px solid var(--b);cursor:pointer;font-size:13px}.al:hover{background:var(--bg)}
+@media(max-width:800px){.shell{display:block}.shell nav{width:auto;min-height:0;position:static;display:flex;flex-wrap:wrap}.sh,.brand{display:none}.shell nav button{width:auto}.shell main{padding:12px}}
+</style></head><body>
+<header><h1>Satguru Steels · Inventory</h1><span class="demo" id="mode"></span><span style="flex:1"></span>
+<label>User <select id="usr" onchange="me=this.value"><option>Admin</option><option>Warehouse</option><option>Sales</option><option>Management</option></select></label>
+<button id="rst" onclick="try{localStorage.removeItem(K)}catch(e){}S=null;boot()">Reset practice data</button><button id="lo" style="display:none" onclick="sb.auth.signOut().then(()=>location.reload())">Log out</button></header>
+<div class="shell"><nav id="nav"></nav><main id="main"></main></div><div id="toast"></div>
+<script src="config.js"></script>
+<script>
+const D=864e5,NOW=Date.now(),K='sg_inv_v2';
+const PIN=['OPENING','PURCHASE','PROC_OUT','ADJ_IN','CUST_RETURN','REV_IN'],POUT=['DISPATCH','PROC_IN','SCRAP','ADJ_OUT','SUPP_RETURN','REV_OUT'];
+let S=null,me='Admin',tab='mgmt',F={q:'',pred:null,label:''},sel=null,P={},grp='product';
+const el=i=>document.getElementById(i),v=i=>el(i).value.trim(),nv=i=>parseFloat(el(i).value)||0;
+const mt=k=>(k/1000).toFixed(2),pad=(x,l)=>String(x).padStart(l,'0');
+const inr=x=>'₹'+(Math.abs(x)>=1e7?(x/1e7).toFixed(2)+' Cr':Math.abs(x)>=1e5?(x/1e5).toFixed(2)+' L':Math.round(x).toLocaleString('en-IN'));
+const dt=t=>new Date(t).toISOString().slice(0,10);
+function save(){if(cloud){flush();return}try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function toast(m,bad){const t=el('toast');t.textContent=m;t.style.background=bad?'#c0392b':'#1f8a4c';t.style.display='block';setTimeout(()=>t.style.display='none',3500)}
+function T(type,lot,kg,o={}){const t=({id:'T'+pad(S.tx.length+1,5),ts:o.ts||Date.now(),type,lot,kg,from:o.from||'',to:o.to||'',party:o.party||'',ref:o.ref||'',user:me,rem:o.rem||'',rev:o.rev||''});S.tx.push(t);E('tx',t)}
+function A(act,obj,o,nw,why){const a={ts:Date.now(),user:me,act,obj,old:o??'',nw:nw??'',why:why||''};S.audit.push(a);E('audit',a)}
+function pos(){P={};S.lots.forEach(l=>P[l.id]={phys:0,res:0,last:0,loc:l.loc,cust:{}});
+S.tx.forEach(t=>{const p=P[t.lot];if(!p)return;
+if(PIN.includes(t.type))p.phys+=t.kg;else if(POUT.includes(t.type))p.phys-=t.kg;
+else if(t.type=='RESERVE'){p.res+=t.kg;p.cust[t.party]=(p.cust[t.party]||0)+t.kg}
+else if(t.type=='UNRESERVE'){p.res-=t.kg;p.cust[t.party]=(p.cust[t.party]||0)-t.kg}
+else if(t.type=='TRANSFER')p.loc=t.to;
+if(t.ts>p.last)p.last=t.ts})}
+function R(){return S.lots.map(l=>{const p=P[l.id],avail=p.phys-p.res;return{...l,...p,avail,age:Math.floor((NOW-l.date)/D),idle:Math.floor((NOW-p.last)/D),val:p.phys*l.cost,sellv:p.phys*(l.sell||l.cost*1.06),sku:[l.product,l.grade,l.th,l.w,l.l,l.make].join(' '),
+status:p.phys<0?'NEGATIVE':p.phys==0?'Dispatched':p.res>0&&avail<=0?'Reserved':p.res>0?'Part-reserved':'Available'}})}
+function addLot(o){const id='L'+pad(S.lots.length+1,3);const lot={id,type:'bundle',grade:'',coil:'',heat:'',bundle:'',sheets:0,parent:'',...o};S.lots.push(lot);E('lot',lot);return id}
+function demo(){S=emptyS();save()}
+function res(lot,party,kg,ago){T('RESERVE',lot,kg,{party,ts:ago?NOW-ago*D:0});pos()}
+function disp(lot,party,kg,ago){const o={party,ts:ago?NOW-ago*D:0,ref:'INV-'+pad(S.tx.length+1,4)};const rc=(P[lot].cust[party]||0);if(rc>0)T('UNRESERVE',lot,Math.min(kg,rc),o);T('DISPATCH',lot,kg,o);pos()}
+function boot(){if(SG.url&&SG.key)return initCloud();try{S=JSON.parse(localStorage.getItem(K))}catch(e){}if(!S)demo();S.off=S.off||{};pos();nav();mode()}
+const TABS=[['mgmt','Management'],['stock','Stock'],['find','What do I have?'],['inward','Inward'],['move','Reserve / Dispatch / Transfer'],['proc','Processing'],['recon','Reconcile'],['age','Ageing & Valuation'],['alerts','Alerts'],['ledger','Ledger & Audit'],['master','Masters']];
+function go(t){tab=t;nav()}
+function view(){pos();el('main').innerHTML=({mgmt,stock,find,inward,move,proc,recon,age,alerts:alertsV,ledger,master,open:openV})[tab]()}
+function opt(a,s){return a.map(x=>`<option ${x==s?'selected':''}>${x}</option>`).join('')}
+function lotOpt(rows){return rows.map(r=>`<option value="${r.id}">${r.id} · ${r.sku} · ${r.bundle||r.coil} · avail ${r.avail} kg</option>`).join('')}
+function alerts(){const out=[],r=R();const bs={};r.forEach(x=>{if(x.bundle&&x.phys>0)bs[x.bundle]=(bs[x.bundle]||0)+1});
+r.forEach(x=>{const w=(s,m)=>out.push({s,m:`${x.id} ${x.sku}: ${m}`,id:x.id});
+if(x.phys<0)w('hi','NEGATIVE stock '+x.phys+' kg');if(x.res>x.phys&&x.phys>=0)w('hi','reserved exceeds physical');
+if(!x.supplier)w('md','missing supplier');if(!x.loc)w('md','missing location');if(!x.cost||x.cost<=0)w('md','missing purchase cost');
+if(x.cost&&(x.cost<30||x.cost>150))w('md','unusual price ₹'+x.cost.toFixed(1)+'/kg');
+if(x.bundle&&bs[x.bundle]>1)w('hi','duplicate bundle ID '+x.bundle);
+if(x.phys>0){if(x.age>180)w('hi','very old stock ('+x.age+' d)');else if(x.age>90)w('md','old stock ('+x.age+' d)');
+if(x.idle>=60)w('md','no movement for '+x.idle+' d, '+inr(x.val)+' locked');if(x.phys<100)w('md','tiny residual '+x.phys+' kg');
+if(x.res==0&&x.type=='bundle'&&x.idle>30)w('md','unallocated and idle')}});
+const tot={};r.filter(x=>x.type=='bundle').forEach(x=>tot[x.product]=(tot[x.product]||0)+x.phys);
+Object.entries(S.min).forEach(([p,m])=>{if(m>0&&(tot[p]||0)<m*1000)out.push({s:'md',m:`LOW STOCK ${p}: ${mt(tot[p]||0)} MT < min ${m} MT`})});
+S.jobs.forEach(j=>{if(j.lossPct>1)out.push({s:'hi',m:`${j.job}: unaccounted loss ${j.lossPct.toFixed(2)}% (${j.loss} kg)`})});
+S.audit.filter(a=>a.act=='Override').forEach(a=>out.push({s:'md',m:'Negative-stock override logged on '+a.obj+': '+a.why}));
+return out}
+function KPI(label,val,pred,bad){return `<div class="k ${bad?'bad':''}" onclick='drillK(${JSON.stringify(pred)},${JSON.stringify(label)})'><small>${label}</small><b>${val}</b></div>`}
+function drillK(p,l){F={q:'',pred:p,label:l};go('stock')}
+const PRED={all:'phys>0',a30:'phys>0&&age>30',a60:'phys>0&&age>60',a90:'phys>0&&age>90',a180:'phys>0&&age>180',bad:'phys<=0&&status=="NEGATIVE"',att:'ATT'};
+let G={prod:'',th:'',make:'',grade:'',loc:'',per:30,m:'val'};
+const GM=[['prod','product'],['th','th'],['make','make'],['grade','grade'],['loc','loc']];
+const SEC=[['OVERVIEW',[['mgmt','Dashboard']]],['INVENTORY',[['stock','Stock'],['find','What Do I Have?']]],['TRANSACTIONS',[['inward','Add Purchase'],['move','Dispatch / Reserve / Transfer'],['recon','Stock Correction'],['open','Opening Stock (paste from Excel)']]],['ANALYSIS',[['age','Ageing & Valuation'],['alerts','Needs Attention']]],['ADMIN',[['master','Items & Customers'],['ledger','Stock Movements & Audit'],['proc','Processing']]]];
+function nav(){el('nav').innerHTML='<div class="brand">Satguru Steels</div>'+SEC.filter(([h])=>!(cloud&&role=='management'&&h=='TRANSACTIONS')).map(([h,a])=>`<div class="sh">${h}</div>`+a.map(([k,n])=>`<button class="${k==tab?'on':''}" onclick="go('${k}')">${n}${k=='alerts'?' ('+alerts().length+')':''}</button>`).join('')).join('');view()}
+const gp=()=>GM.map(([g,k])=>G[g]?`&&String(r.${k})==${JSON.stringify(String(G[g]))}`:'').join('');
+const gOk=x=>GM.every(([g,k])=>!G[g]||String(x[k])==String(G[g]));
+function ser(){const N=G.per>30?30:Math.max(G.per,7),span=G.per*D,st=NOW-span,C={};S.lots.forEach(l=>{if(gOk(l))C[l.id]=l.cost});
+const inn=Array(N).fill(0),out=Array(N).fill(0),dl=Array(N).fill(0),dv=Array(N).fill(0);let o=0,ov=0;
+S.tx.forEach(t=>{const c=C[t.lot];if(c===undefined)return;const s=PIN.includes(t.type)?1:POUT.includes(t.type)?-1:0;if(!s)return;if(t.ts<st){o+=s*t.kg;ov+=s*t.kg*c;return}
+const i=Math.min(N-1,Math.floor((t.ts-st)/span*N));if(s>0)inn[i]+=t.kg;else out[i]+=t.kg;dl[i]+=s*t.kg;dv[i]+=s*t.kg*c});
+let a=o,b=ov;return{inn,out,cl:dl.map(x=>a+=x),cv:dv.map(x=>b+=x),o,ov}}
+function plot(inn,out,cl,col){const W=560,H=150,N=cl.length,bw=W/N,mx=Math.max(1,...(inn||[]),...(out||[])),mc=Math.max(1,...cl),mn=inn?0:Math.min(...cl)*.9,y=(x,a,b)=>H-8-(x-a)/((b-a)||1)*(H-20);
+let s=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">`;
+if(inn)for(let i=0;i<N;i++)s+=`<rect x="${i*bw+1}" width="${bw/2-1}" y="${y(inn[i],0,mx)}" height="${H-8-y(inn[i],0,mx)}" fill="var(--g)" opacity=".75"/><rect x="${i*bw+bw/2}" width="${bw/2-1}" y="${y(out[i],0,mx)}" height="${H-8-y(out[i],0,mx)}" fill="var(--r)" opacity=".75"/>`;
+return s+`<polyline fill="none" stroke="${col}" stroke-width="2" points="${cl.map((x,i)=>(i*bw+bw/2)+','+y(x,mn,mc)).join(' ')}"/></svg>`}
+function capBar(key,gk,title){const g={};gR().forEach(r=>{const k=String(r[key]);g[k]=g[k]||{kg:0,val:0};g[k].kg+=r.phys;g[k].val+=r.val});
+const e=Object.entries(g).sort((a,b)=>b[1][G.m=='val'?'val':'kg']-a[1][G.m=='val'?'val':'kg']),T=e.reduce((s,x)=>s+x[1].val,0),mx=Math.max(...e.map(x=>x[1][G.m=='val'?'val':'kg']),1);
+return `<div class="card"><h2>${title}</h2>${e.map(([k,o])=>{const q=o[G.m=='val'?'val':'kg'];return `<div class="bar" onclick='G.${gk}=${JSON.stringify(k)};view()'><span>${key=='th'?k+' mm':k}</span><i style="width:${q/mx*100}%"></i><b>${mt(o.kg)} MT · ${inr(o.val)} · ${T?(o.val/T*100).toFixed(0):0}%</b></div>`}).join('')||'<small>No stock</small>'}</div>`}
+function gR(){return R().filter(x=>x.phys>0&&gOk(x))}
+const lvl=m=>/NEGATIVE|exceeds|duplicate/i.test(m)?0:/very old|unaccounted|locked|Override/i.test(m)?1:2;
+function mgmt(){const A=R(),rows=gR(),kg=rows.reduce((a,x)=>a+x.phys,0),val=rows.reduce((a,x)=>a+x.val,0),rs=rows.reduce((a,x)=>a+x.res,0);
+const o90=rows.filter(x=>x.age>90).reduce((a,x)=>a+x.phys,0),slow=rows.filter(x=>x.idle>=60).reduce((a,x)=>a+x.val,0),ex=gp();
+const uq=k=>[...new Set(A.filter(x=>x.phys>0).map(x=>x[k]))].sort();
+const sl=(g,k,l)=>`<select onchange="G.${g}=this.value;view()"><option value="">${l}: All</option>${uq(k).map(x=>`<option value="${x}" ${String(G[g])==String(x)?'selected':''}>${x}</option>`).join('')}</select>`;
+const HB=[['Fresh','0–30 d',0,30,'var(--g)'],['Ageing','31–90 d',31,90,'#d9b300'],['Old','91–180 d',91,180,'var(--o)'],['Very old','180+ d',181,1e9,'var(--r)']].map(([n,l,a,b,c])=>{const z=rows.filter(x=>x.age>=a&&x.age<=b);return{n,l,a,b,c,kg:z.reduce((s,x)=>s+x.phys,0),v:z.reduce((s,x)=>s+x.val,0)}});
+const pos={};rows.forEach(x=>{const p=pos[x.sku]=pos[x.sku]||{sku:x.sku,kg:0,v:0,age:0,make:x.make};p.kg+=x.phys;p.v+=x.val;p.age=Math.max(p.age,x.age)});
+const top=Object.values(pos).sort((a,b)=>b.v-a.v).slice(0,6),s=ser(),al=alerts().map(a=>({...a,l:lvl(a.m)})),LV=[['🔴 Critical',0],['🟠 Action required',1],['🟡 Review',2]];
+const chips=GM.filter(([g])=>G[g]).map(([g])=>`<span class="chip" onclick="G.${g}='';view()">${G[g]} ✕</span>`).join('');
+const kp=(l,v,sub,p,bad)=>`<div class="kp ${bad?'bad':''}" onclick='drillK(${JSON.stringify("phys>0"+ex+(p||""))},${JSON.stringify(l)})'><small>${l}</small><b>${v}</b><em>${sub}</em></div>`;
+const open=Object.values(HB);
+return `<div class="top"><h2 style="margin:0;font-size:20px">Inventory overview</h2><span style="flex:1"></span><button class="p" onclick="go('inward')">+ Purchase</button><button class="p" onclick="go('move')">+ Dispatch</button><button class="p" onclick="go('move')">+ Reserve</button><button class="p" onclick="go('recon')">Stock Correction</button></div>
+<div class="fb">${[[1,'Today'],[7,'7D'],[30,'30D'],[90,'90D'],[180,'6M'],[365,'12M']].map(([d,n])=>`<button class="${G.per==d?'on':''}" onclick="G.per=${d};view()">${n}</button>`).join('')}${sl('prod','product','Product')}${sl('th','th','Thickness')}${sl('grade','grade','Grade')}${sl('make','make','Make')}${sl('loc','loc','Warehouse')}${chips}<span style="flex:1"></span><button class="${G.m=='val'?'on':''}" onclick="G.m='val';view()">₹ Value</button><button class="${G.m=='kg'?'on':''}" onclick="G.m='kg';view()">MT</button></div>
+<div class="kpis">${kp('Total inventory',mt(kg)+' MT','physical stock')}${kp('Inventory value',inr(val),'at cost')}${kp('Available',mt(kg-rs)+' MT','not reserved','&&res>=0')}${kp('Reserved',mt(rs)+' MT',kg?(rs/kg*100).toFixed(0)+'% of stock':'','&&res>0')}${kp('Older than 90 days',mt(o90)+' MT','capital at risk','&&age>90',o90>0)}${kp('Slow-moving value',inr(slow),'no movement 60d+','&&idle>=60',slow>0)}</div>
+<div class="card"><h2>Inventory health <small>by age since receipt</small></h2><div class="hb">${HB.map(h=>`<div style="flex:${Math.max(h.v,1)};background:${h.c}" onclick='drillK(${JSON.stringify("phys>0"+ex+"&&age>="+h.a+"&&age<="+h.b)},${JSON.stringify(h.n)})' title="${h.n}"></div>`).join('')}</div>
+<div class="w"><table><tr><th>Age<th class=n>MT<th class=n>Value<th class=n>% of value</tr>${HB.map(h=>`<tr class="cl" onclick='drillK(${JSON.stringify("phys>0"+ex+"&&age>="+h.a+"&&age<="+h.b)},${JSON.stringify(h.n)})'><td><span class="dot" style="background:${h.c}"></span>${h.n} · ${h.l}<td class=n>${mt(h.kg)}<td class=n>${inr(h.v)}<td class=n>${val?(h.v/val*100).toFixed(0):0}%</tr>`).join('')}</table></div></div>
+<div class="g2">${capBar('product','prod','Capital by product')}${capBar('th','th','Capital by thickness')}${capBar('make','make','Inventory by make')}</div>
+<div class="g2"><div class="card"><h2>Inventory movement <small>${G.per}d · MT</small></h2><div class="sum"><span>Opening <b>${mt(s.o)}</b></span><span class="gn">Inward <b>${mt(s.inn.reduce((a,b)=>a+b,0))}</b></span><span class="rd">Outward <b>${mt(s.out.reduce((a,b)=>a+b,0))}</b></span><span>Closing <b>${mt(s.cl[s.cl.length-1])}</b></span></div>${plot(s.inn,s.out,s.cl,'var(--a)')}<small>Bars: inward (green) / outward (red). Line: closing stock.</small></div>
+<div class="card"><h2>Inventory ${G.m=='val'?'value':'quantity'} trend</h2><div class="sum"><span>Start <b>${G.m=='val'?inr(s.ov):mt(s.o)}</b></span><span>Now <b>${G.m=='val'?inr(s.cv[s.cv.length-1]):mt(s.cl[s.cl.length-1])}</b></span></div>${plot(null,null,G.m=='val'?s.cv:s.cl,'var(--a)')}<small>Value uses each lot's own cost.</small></div></div>
+<div class="g2"><div class="card"><h2>Largest inventory positions</h2><div class="w"><table><tr><th>Item<th class=n>MT<th class=n>Value<th class=n>Oldest</tr>${top.map(p=>`<tr class="cl" onclick='drillK(${JSON.stringify("phys>0&&String(r.sku)=="+JSON.stringify(p.sku))},${JSON.stringify(p.sku)})'><td>${p.sku}<td class=n>${mt(p.kg)}<td class=n>${inr(p.v)}<td class=n>${p.age}d</tr>`).join('')}</table></div></div>
+<div class="card"><h2>Needs attention</h2>${LV.map(([t,l])=>{const z=al.filter(a=>a.l==l);return z.length?`<div class="ag"><b>${t}</b> <small>${z.length}</small>${z.slice(0,3).map(a=>`<div class="al" onclick="${a.id?`sel='${a.id}';go('stock')`:`go('alerts')`}">${a.m}</div>`).join('')}</div>`:''}).join('')||'All clear'}<button onclick="go('alerts')">View all →</button></div></div>`}
+function custRes(){const m={};R().forEach(x=>Object.entries(x.cust).forEach(([c,q])=>{if(q>0){m[c]=m[c]||[];m[c].push(`${x.sku} ${x.bundle}: ${mt(q)} MT (age ${x.age} d)`)}}));
+return Object.entries(m).map(([c,a])=>`<div><b>${c}</b><br>${a.join('<br>')}</div>`).join('<hr>')||'None'}
+function bars(key){const g={};R().filter(r=>r.phys>0).forEach(r=>{const k=String(r[key]);g[k]=g[k]||{kg:0,val:0};g[k].kg+=r.phys;g[k].val+=r.val});
+const e=Object.entries(g).sort((a,b)=>b[1].val-a[1].val),mx=Math.max(...e.map(x=>x[1].val),1);
+return e.map(([k,o])=>`<div class="bar" onclick='drillK(${JSON.stringify("phys>0&&String(r."+key+")=="+JSON.stringify(k))},${JSON.stringify(key+": "+k)})'><span>${k}</span><i style="width:${o.val/mx*100}%"></i><b>${mt(o.kg)} MT · ${inr(o.val)}</b></div>`).join('')}
+function match(r,q){return q.toLowerCase().replace(/[×x]/g,' ').split(/\s+/).filter(Boolean).every(t=>{if(/^[\d.]+$/.test(t)){const f=parseFloat(t);return [r.th,r.w,r.l].includes(f)||String(r.sku+r.bundle+r.heat).toLowerCase().includes(t)}return (r.sku+' '+r.bundle+' '+r.heat+' '+r.supplier+' '+r.loc+' '+r.coil+' '+r.status+' '+Object.keys(r.cust).join(' ')).toLowerCase().includes(t)})}
+function ev(x,p){return p.split('&&').every(c=>{const m=c.match(/^(?:String\(r\.(\w+)\)|(\w+))(>=|<=|==|>|<)(.*)$/);if(!m)return true;const a=m[1]?String(x[m[1]]):x[m[2]],b=m[4][0]=='"'?JSON.parse(m[4]):parseFloat(m[4]);return m[3]=='>='?a>=b:m[3]=='<='?a<=b:m[3]=='>'?a>b:m[3]=='<'?a<b:a==b})}
+function filt(){let r=R().filter(x=>x.phys!=0);if(F.pred==='ATT'){const ids=new Set(alerts().map(a=>a.id).filter(Boolean));r=R().filter(x=>ids.has(x.id))}else if(F.pred)r=r.filter(x=>ev(x,F.pred));
+if(F.q)r=r.filter(x=>match(x,F.q));return r}
+function stock(){const r=filt(),kg=r.reduce((a,x)=>a+x.phys,0),val=r.reduce((a,x)=>a+x.val,0);
+return `<h2>Stock master</h2><div class="card"><input id="q" placeholder="Search: CR 1.2 1250 2500 Tata" value="${F.q}" oninput="F.q=this.value;stkUpd()" style="width:min(420px,100%)"> ${F.label?`<span class="tag">${F.label}</span> <button onclick="F={q:'',pred:null,label:''};view()">clear</button>`:''} <button onclick="csvOut('stock')">CSV</button>
+<div id="stk">${stkTbl(r,kg,val)}</div></div>${sel?lotDetail(sel):''}`}
+function stkUpd(){const r=filt(),q=el('q');el('stk').innerHTML=stkTbl(r,r.reduce((a,x)=>a+x.phys,0),r.reduce((a,x)=>a+x.val,0))}
+function stkTbl(r,kg,val){return `<p>${r.length} lots · ${mt(kg)} MT · cost ${inr(val)}</p><div class="w"><table><tr><th>ID<th>Product<th>Grade<th class=n>Th<th>W×L<th>Make<th>Heat<th>Bundle/Coil<th>Supplier<th>Loc<th class=n>MT<th class=n>Res<th class=n>Avail<th class=n>₹/kg<th class=n>Value<th class=n>Age<th>Status</tr>${r.sort((a,b)=>b.val-a.val).map(x=>`<tr class="cl" onclick="sel='${x.id}';view()"><td>${x.id}<td>${x.product}<td>${x.grade}<td class=n>${x.th}<td>${x.w}×${x.l||'coil'}<td>${x.make}<td>${x.heat}<td>${x.bundle||x.coil}<td>${x.supplier}<td>${x.loc}<td class=n>${mt(x.phys)}<td class=n>${mt(x.res)}<td class=n>${mt(x.avail)}<td class=n>${x.cost.toFixed(2)}<td class=n>${inr(x.val)}<td class=n>${x.age}<td><span class=tag>${x.status}</span></tr>`).join('')}</table></div>`}
+function lotDetail(id){const x=R().find(r=>r.id==id);if(!x)return '';const t=S.tx.filter(t=>t.lot==id);
+const kids=S.lots.filter(l=>l.parent==id).map(l=>l.id);
+return `<div class="card"><h2>${x.id} · ${x.sku} · ${x.bundle||x.coil}</h2><p>Original ${mt(t.filter(a=>['PURCHASE','OPENING','PROC_OUT'].includes(a.type)).reduce((s,a)=>s+a.kg,0))} MT · Remaining ${mt(x.phys)} MT · Reserved ${mt(x.res)} · Landed cost ₹${x.cost.toFixed(2)}/kg · Sheets ≈ ${x.sheets} ${x.parent?'· Source coil '+x.parent:''} ${kids.length?'· Outputs '+kids.join(', '):''}</p>${txTbl(t)}</div>`}
+function txTbl(t,a){const rb=x=>S.tx.find(y=>y.rev==x.id);return `<div class="w"><table><tr><th>ID<th>Date<th>Type<th>Lot<th class=n>kg<th>From→To<th>Party<th>Ref<th>User<th>Remarks${a?'<th>Action':''}</tr>${[...t].reverse().map(x=>{const q=rb(x);return `<tr style="${q||x.rev?'opacity:.6':''}"><td>${x.id}<td>${dt(x.ts)}<td>${x.type}<td>${x.lot}<td class=n>${x.kg}<td>${x.from}${x.to?'→'+x.to:''}<td>${x.party}<td>${x.ref}<td>${x.user}<td>${x.rem}${q?' <span class="tag">reversed by '+q.id+'</span>':''}${a?'<td>'+(q||x.rev||['PROC_IN','PROC_OUT'].includes(x.type)?'':`<button onclick="rv('${x.id}')">Reverse</button>`+(['PURCHASE','DISPATCH'].includes(x.type)?` <button onclick="ed('${x.id}')">Edit</button>`:'')):''}</tr>`}).join('')}</table></div>`}
+function find(){const L=R().filter(x=>x.phys>0),u=k=>[...new Set(L.map(x=>x[k]))].sort();
+return `<h2>What do I have?</h2><div class="card f"><label>Product<select id="fp" onchange="fnd()"><option value="">All</option>${opt(u('product'))}</select></label><label>Grade<select id="fg" onchange="fnd()"><option value="">All</option>${opt(u('grade'))}</select></label><label>Thickness<select id="ft" onchange="fnd()"><option value="">All</option>${opt(u('th'))}</select></label><label>Width<select id="fw" onchange="fnd()"><option value="">All</option>${opt(u('w'))}</select></label><label>Length<select id="fl" onchange="fnd()"><option value="">All</option>${opt(u('l'))}</select></label><label>Make<select id="fm" onchange="fnd()"><option value="">All</option>${opt(u('make'))}</select></label></div><div id="fr" class="card"></div>`}
+function fnd(){const m={fp:'product',fg:'grade',ft:'th',fw:'w',fl:'l',fm:'make'};let r=R().filter(x=>x.phys>0);Object.entries(m).forEach(([i,k])=>{if(v(i))r=r.filter(x=>String(x[k])==v(i))});
+const kg=r.reduce((a,x)=>a+x.phys,0),rs=r.reduce((a,x)=>a+x.res,0),val=r.reduce((a,x)=>a+x.val,0);
+el('fr').innerHTML=`<div class="grid"><div class="k"><small>Available MT</small><b>${mt(kg-rs)}</b></div><div class="k"><small>Reserved MT</small><b>${mt(rs)}</b></div><div class="k"><small>Total MT</small><b>${mt(kg)}</b></div><div class="k"><small>Bundles</small><b>${r.length}</b></div><div class="k"><small>Avg cost ₹/kg</small><b>${kg?(val/kg).toFixed(2):'-'}</b></div><div class="k"><small>Avg age (d)</small><b>${kg?(r.reduce((a,x)=>a+x.age*x.phys,0)/kg).toFixed(0):'-'}</b></div></div>`+stkTbl(r,kg,val)}
+function inward(){return `<h2>Inward / purchase receipt</h2><div class="card f"><label>Supplier<select id="i_s">${opt(act('sup'))}</select></label><label>Purchase invoice<input id="i_inv"></label><label>Date<input id="i_d" type="date" value="${dt(NOW)}"></label><label>Product<select id="i_p">${opt(['CR','HR','HRPO','GP/GI','Other'])}</select></label><label>Grade<input id="i_g" placeholder="IS 513 CR2"></label><label>Thickness mm<input id="i_t" type="number" step="0.01"></label><label>Width mm<input id="i_w" type="number" value="1250"></label><label>Length mm (0 = coil)<input id="i_l" type="number" value="2500"></label><label>Make<select id="i_m">${opt(['Tata','JSW','AM/NS','Bokaro New Mill','Bokaro Old Mill','Other'])}</select></label><label>Heat no.<input id="i_h"></label><label>Coil no.<input id="i_c"></label><label>Bundle no.<input id="i_b"></label><label>Weight kg<input id="i_k" type="number"></label><label>Sheets<input id="i_n" type="number"></label><label>Price ₹/kg<input id="i_pr" type="number" step="0.01"></label><label>Freight ₹ (total)<input id="i_f" type="number" value="0"></label><label>Other landed ₹ (total)<input id="i_o" type="number" value="0"></label><label>Location<select id="i_loc">${opt(act('locs'))}</select></label></div><button class="p" onclick="doInward()">Post receipt</button> <span style="color:var(--m)">Landed cost/kg = price + (freight + other) ÷ kg</span>`}
+function doInward(){const kg=nv('i_k'),pr=nv('i_pr'),th=nv('i_t'),w=nv('i_w'),b=v('i_b');
+if(kg<=0||pr<=0||th<=0||w<=0)return toast('Weight, price, thickness, width must be positive',1);
+if(b&&S.lots.some(l=>l.bundle==b&&P[l.id].phys>0))return toast('Duplicate bundle ID '+b,1);
+const cost=pr+(nv('i_f')+nv('i_o'))/kg,coil=v('i_l')==0||v('i_c');
+const id=addLot({product:v('i_p'),grade:v('i_g'),th,w,l:nv('i_l'),make:v('i_m'),heat:v('i_h'),coil:v('i_c'),bundle:b,supplier:v('i_s'),inv:v('i_inv'),date:new Date(v('i_d')).getTime(),loc:v('i_loc'),cost,sheets:nv('i_n'),type:coil?'coil':'bundle'});
+T('PURCHASE',id,kg,{to:v('i_loc'),party:v('i_s'),ref:v('i_inv'),ts:new Date(v('i_d')).getTime()+36e5});A('Inward',id,'',kg+' kg @ ₹'+cost.toFixed(2),'Purchase receipt');save();pos();toast(id+' received: '+mt(kg)+' MT, landed ₹'+cost.toFixed(2)+'/kg');go('stock')}
+function move(){const r=R().filter(x=>x.phys>0);return `<h2>Reserve · Dispatch · Transfer</h2><div class="card f"><label>Action<select id="m_a" onchange="mv()"><option>RESERVE</option><option>UNRESERVE</option><option>DISPATCH</option><option>TRANSFER</option></select></label><label style="grid-column:span 2">Lot<select id="m_l" onchange="mv()">${lotOpt(r)}</select></label><label>Qty kg<input id="m_k" type="number"></label><label>Customer<select id="m_c">${opt(act('cust'))}</select></label><label>Invoice / SO / vehicle<input id="m_r"></label><label>To location (transfer)<select id="m_to">${opt(act('locs'))}</select></label><label>Override reason (only if short)<input id="m_o"></label></div><div id="m_i" style="margin:6px 0"></div><button class="p" onclick="doMove()">Post</button>`}
+function mv(){const x=R().find(r=>r.id==v('m_l'));if(x)el('m_i').innerHTML=`Physical ${x.phys} kg · Reserved ${x.res} · <b>Available ${x.avail}</b> · At ${x.loc} · Reserved for: ${Object.entries(x.cust).filter(e=>e[1]>0).map(e=>e[0]+' '+e[1]).join(', ')||'-'}`}
+function doMove(){const a=v('m_a'),id=v('m_l'),x=R().find(r=>r.id==id);if(!x)return;let kg=nv('m_k');const c=v('m_c'),o={party:c,ref:v('m_r')},ov=v('m_o');
+if(a!='TRANSFER'&&kg<=0)return toast('Quantity must be positive',1);
+if(a=='RESERVE'){if(kg>x.avail&&!ov)return toast(`Only ${x.avail} kg available. Enter override reason to proceed.`,1);if(kg>x.avail)A('Override',id,x.avail,kg,ov);T('RESERVE',id,kg,o);A('Reserve',id,'',kg+' kg for '+c,'')}
+else if(a=='UNRESERVE'){if(kg>(x.cust[c]||0))return toast('Customer holds only '+(x.cust[c]||0)+' kg',1);T('UNRESERVE',id,kg,o);A('Unreserve',id,kg,'',c)}
+else if(a=='DISPATCH'){const rc=Math.max(x.cust[c]||0,0),lim=x.avail+rc;if(kg>lim&&!ov)return toast(`Would go negative. Available ${x.avail} kg (+${rc} reserved for ${c}). Override reason needed.`,1);if(kg>lim)A('Override',id,lim,kg,ov);if(rc>0)T('UNRESERVE',id,Math.min(kg,rc),o);T('DISPATCH',id,kg,{...o,rem:ov});A('Dispatch',id,x.phys,x.phys-kg,c+' '+v('m_r'))}
+else{kg=x.phys;if(v('m_to')==x.loc)return toast('Already at that location',1);T('TRANSFER',id,kg,{from:x.loc,to:v('m_to'),ref:v('m_r')});A('Transfer',id,x.loc,v('m_to'),'')}
+save();pos();toast(a+' posted');view();setTimeout(mv,0)}
+function proc(){const co=R().filter(x=>x.type=='coil'&&x.phys>0);return `<h2>Processing · slitting / CTL</h2><div class="card f"><label style="grid-column:span 2">Coil<select id="p_c">${lotOpt(co)}</select></label><label>Input kg<input id="p_i" type="number"></label><label>Output width mm<input id="p_w" type="number" value="1250"></label><label>Output length mm<input id="p_l" type="number" value="2500"></label><label>Finished kg<input id="p_f" type="number"></label><label>Scrap kg<input id="p_s" type="number" value="0"></label><label>Job no.<input id="p_j" value="JOB-${pad(S.jobs.length+1,3)}"></label><label>Machine<input id="p_m" value="CTL-1"></label><label>Operator<input id="p_o"></label></div><button class="p" onclick="doProc()">Post job</button>
+<div class="card w"><h2>Jobs & traceability</h2><table><tr><th>Job<th>Coil<th>→ Output lot<th class=n>Input<th class=n>Finished<th class=n>Scrap<th class=n>Unaccounted<th class=n>Yield %<th class=n>Scrap %<th>Flag</tr>${S.jobs.map(j=>`<tr><td>${j.job}<td>${j.coil}<td>${j.out}<td class=n>${j.inKg}<td class=n>${j.fin}<td class=n>${j.scrap}<td class=n>${j.loss}<td class=n>${j.yld.toFixed(2)}<td class=n>${j.scrapPct.toFixed(2)}<td class="${j.lossPct>1?'hi':''}">${j.lossPct>1?'ABNORMAL LOSS':'ok'}</tr>`).join('')}</table></div>`}
+function runJob(o){const c=S.lots.find(l=>l.id==o.coil),loss=o.inKg-o.fin-o.scrap;
+const{id:_i,...cr}=c;const out=addLot({...cr,type:'bundle',w:o.w,l:o.l,coil:c.coil,bundle:'PB-'+o.job,parent:c.id,cost:c.cost*o.inKg/o.fin,sheets:Math.round(o.fin/(c.th*o.w*o.l*7.85e-6)),loc:'Godown B-R1'});
+const ts=o.ts||Date.now();T('PROC_IN',c.id,o.inKg,{ts,ref:o.job,rem:`Coil → ${out}; scrap ${o.scrap} kg; unaccounted ${loss} kg`});T('PROC_OUT',out,o.fin,{ts:ts+1,ref:o.job,from:c.id,to:'Godown B-R1',rem:'From coil '+c.id});
+const j={job:o.job,coil:c.id,out,inKg:o.inKg,fin:o.fin,scrap:o.scrap,loss,yld:o.fin/o.inKg*100,scrapPct:o.scrap/o.inKg*100,lossPct:loss/o.inKg*100,mach:o.mach,op:o.op,ts};S.jobs.push(j);E('job',j);A('Process',c.id,o.inKg+' kg coil',o.fin+' kg → '+out,o.job);return out}
+function doProc(){const x=R().find(r=>r.id==v('p_c'));if(!x)return toast('No coil available',1);const i=nv('p_i'),f=nv('p_f'),s=nv('p_s');
+if(i<=0||f<=0)return toast('Enter input and finished kg',1);if(i>x.phys)return toast('Input exceeds coil balance '+x.phys+' kg',1);if(f+s>i)return toast('Finished + scrap exceeds input',1);
+const out=runJob({coil:x.id,inKg:i,w:nv('p_w'),l:nv('p_l'),fin:f,scrap:s,job:v('p_j'),mach:v('p_m'),op:v('p_o')});save();pos();toast('Created '+out+' from '+x.id);view()}
+function recon(){const r=R().filter(x=>x.phys>0);return `<h2>Stock reconciliation</h2><div class="card f"><label style="grid-column:span 2">Lot<select id="r_l" onchange="rc()">${lotOpt(r)}</select></label><label>System kg<input id="r_s" disabled></label><label>Physical kg<input id="r_p" type="number" oninput="rc()"></label><label>Reason<select id="r_r"><option value="">Select…</option>${opt(['Counting error','Weight variation','Damage','Scrap','Missing material','Data-entry error','Other'])}</select></label><label><span>Manager approves (if &gt;2%)</span><input id="r_a" type="checkbox"></label></div><div id="r_v" style="margin:6px 0"></div><button class="p" onclick="doRecon()">Post adjustment</button>
+<div class="card w"><h2>Adjustments</h2><table><tr><th>Date<th>User<th>Lot<th>Old<th>New<th>Reason</tr>${S.audit.filter(a=>a.act=='Adjust').map(a=>`<tr><td>${dt(a.ts)}<td>${a.user}<td>${a.obj}<td>${a.old}<td>${a.nw}<td>${a.why}</tr>`).join('')}</table></div>`}
+function rc(){const x=R().find(r=>r.id==v('r_l'));if(!x)return;el('r_s').value=x.phys;const p=el('r_p').value;if(p==='')return el('r_v').innerHTML='';const d=parseFloat(p)-x.phys;el('r_v').innerHTML=`Variance ${d} kg (${(d/x.phys*100).toFixed(2)}%) · value ${inr(d*x.cost)}`}
+function doRecon(){const x=R().find(r=>r.id==v('r_l'));if(!x||el('r_p').value==='')return toast('Enter physical qty',1);const p=nv('r_p'),d=p-x.phys;if(p<0)return toast('Negative quantity',1);if(d==0)return toast('No variance');
+if(!v('r_r'))return toast('Reason is required',1);if(Math.abs(d/x.phys)>.02&&!el('r_a').checked)return toast('Variance >2% needs manager approval',1);
+T(d>0?'ADJ_IN':'ADJ_OUT',x.id,Math.abs(d),{rem:v('r_r')});A('Adjust',x.id,x.phys,p,v('r_r')+' ('+inr(d*x.cost)+')');save();pos();toast('Adjusted '+d+' kg');view()}
+const BK=[[0,15],[16,30],[31,60],[61,90],[91,180],[181,365],[366,1e9]];
+function age(){const r=R().filter(x=>x.phys>0),tot=r.reduce((a,x)=>a+x.val,0),kg=r.reduce((a,x)=>a+x.phys,0);
+const wac={};r.forEach(x=>{wac[x.sku]=wac[x.sku]||{kg:0,v:0};wac[x.sku].kg+=x.phys;wac[x.sku].v+=x.val});
+const sell=r.reduce((a,x)=>a+x.sellv,0);
+return `<h2>Ageing</h2><div class="card w"><table><tr><th>Bucket<th class=n>MT<th class=n>Cost ₹<th class=n>% value</tr>${BK.map(([a,b])=>{const z=r.filter(x=>x.age>=a&&x.age<=b);const vv=z.reduce((s,x)=>s+x.val,0);return `<tr class="cl" onclick='drillK(${JSON.stringify("phys>0&&age>="+a+"&&age<="+b)},"Age ${a}-${b>1e8?"+":b}")'><td>${a}–${b>1e8?'∞':b} d<td class=n>${mt(z.reduce((s,x)=>s+x.phys,0))}<td class=n>${inr(vv)}<td class=n>${tot?(vv/tot*100).toFixed(1):0}%</tr>`}).join('')}</table></div>
+<div class="card"><h2>Oldest stock</h2>${[...r].sort((a,b)=>b.age-a.age).slice(0,8).map(x=>`<div>${x.id} ${x.sku} · ${x.age} d · ${mt(x.phys)} MT · ${inr(x.val)}</div>`).join('')}</div>
+<h2>Valuation</h2><div class="grid"><div class="k"><small>Inventory COST value (lot-wise FIFO layers)</small><b>${inr(tot)}</b></div><div class="k"><small>Weighted avg cost ₹/kg</small><b>${kg?(tot/kg).toFixed(2):'-'}</b></div><div class="k"><small>ESTIMATED SELLING value (separate)</small><b>${inr(sell)}</b></div></div>
+<div class="card w"><table><tr><th>SKU<th class=n>MT<th class=n>Cost ₹<th class=n>WAC ₹/kg<th>Cost layers (oldest first)</tr>${Object.entries(wac).map(([s,o])=>`<tr><td>${s}<td class=n>${mt(o.kg)}<td class=n>${inr(o.v)}<td class=n>${(o.v/o.kg).toFixed(2)}<td>${r.filter(x=>x.sku==s).sort((a,b)=>a.date-b.date).map(x=>mt(x.phys)+' MT @ ₹'+x.cost.toFixed(2)).join(' · ')}</tr>`).join('')}</table></div>`}
+function alertsV(){return `<h2>Alerts & exceptions</h2><div class="card">${alerts().map(a=>`<div class="${a.s}">● ${a.m}</div>`).join('')||'All clear'}</div>`}
+function ledger(){return `<h2>Transaction ledger</h2><div class="card"><button onclick="csvOut('tx')">CSV</button><input id="rv_r" placeholder="Reason (required to reverse or edit an entry)" style="width:min(420px,100%)"> ${txTbl(S.tx.slice(-150),1)}</div><h2>Audit trail</h2><div class="card w"><table><tr><th>When<th>User<th>Action<th>Object<th>Old<th>New<th>Reason</tr>${[...S.audit].reverse().slice(0,100).map(a=>`<tr><td>${new Date(a.ts).toISOString().slice(0,16)}<td>${a.user}<td>${a.act}<td>${a.obj}<td>${a.old}<td>${a.nw}<td>${a.why}</tr>`).join('')}</table></div>`}
+const act=k=>S[k].filter(x=>!S.off[k+':'+x]);
+function revTx(id,why){if(me=='Sales'||(cloud&&role=='management'))return toast('Your role cannot reverse entries',1),false;const t=S.tx.find(x=>x.id==id);if(!t)return false;
+if(S.tx.some(x=>x.rev==id))return toast('Already reversed',1),false;if(t.rev)return toast('A reversal cannot be reversed; post a new entry',1),false;
+if(!why)return toast('Enter a reason first',1),false;if(['PROC_IN','PROC_OUT'].includes(t.type))return toast('Processing entries: use Stock Correction',1),false;
+const p=P[t.lot],o={party:t.party,ref:t.ref,rev:id,rem:'Reversal of '+id+': '+why};
+if(PIN.includes(t.type)){if(p.phys<t.kg)return toast('Stock from this entry is already used ('+p.phys+' kg left). Reverse the later dispatch first.',1),false;T('REV_OUT',t.lot,t.kg,o)}
+else if(POUT.includes(t.type))T('REV_IN',t.lot,t.kg,o);
+else if(t.type=='RESERVE'){if((p.cust[t.party]||0)<t.kg)return toast('Reservation already used',1),false;T('UNRESERVE',t.lot,t.kg,o)}
+else if(t.type=='UNRESERVE')T('RESERVE',t.lot,t.kg,o);
+else if(t.type=='TRANSFER')T('TRANSFER',t.lot,t.kg,{...o,from:t.to,to:t.from});
+A('Reverse',t.lot,id,'',why);save();pos();return true}
+function rv(id){if(revTx(id,v('rv_r'))){toast('Entry reversed');view()}}
+function ed(id){const t=S.tx.find(x=>x.id==id),l=S.lots.find(x=>x.id==t.lot);if(!revTx(id,v('rv_r')))return;
+if(t.type=='PURCHASE'){go('inward');const m={i_s:l.supplier,i_inv:l.inv,i_d:dt(l.date),i_p:l.product,i_g:l.grade,i_t:l.th,i_w:l.w,i_l:l.l,i_m:l.make,i_h:l.heat,i_c:l.coil,i_b:l.bundle,i_k:t.kg,i_n:l.sheets,i_pr:l.cost.toFixed(2),i_loc:l.loc};Object.entries(m).forEach(([k,x])=>{try{el(k).value=x}catch(e){}})}
+else{go('move');const m={m_a:'DISPATCH',m_l:t.lot,m_k:t.kg,m_c:t.party,m_r:t.ref};Object.entries(m).forEach(([k,x])=>{try{el(k).value=x}catch(e){}});mv()}
+toast('Old entry reversed. Correct the details and post again.')}
+function mrow(k,t){return `<div class="card"><b>${t}</b><div class="w"><table>${S[k].map((x,i)=>{const off=S.off[k+':'+x];return `<tr><td><input id="rn_${k}_${i}" value="${x.replace(/"/g,'&quot;')}" ${off?'disabled':''}><td>${off?'<span class="tag">Inactive</span>':''}<td><button onclick="rn('${k}',${i})">Rename</button> <button onclick="tg('${k}',${i})">${off?'Activate':'Deactivate'}</button></tr>`}).join('')}</table></div><input id="m_${k}" placeholder="Add new"><button onclick="addM('${k}','m_${k}')">Add</button></div>`}
+function rn(k,i){if(me!='Admin')return toast('Only the Owner can rename or deactivate',1);const o=S[k][i],n=v(`rn_${k}_${i}`);if(!n||n==o)return;if(S[k].includes(n))return toast('Name already exists',1);
+renM(k,o,n);E('m',{op:'rn',k,o,n});
+A('Rename',k,o,n,'Master change');save();view();toast('Renamed everywhere')}
+function tg(k,i){if(me!='Admin')return toast('Only the Owner can rename or deactivate',1);const x=S[k][i],key=k+':'+x;
+if(!S.off[key]){if(k=='locs'&&R().some(r=>r.phys>0&&r.loc==x))return toast('Stock is still in this location. Transfer it first.',1);S.off[key]=1}else delete S.off[key];
+E('m',{op:'off',key,on:!!S.off[key]});A(S.off[key]?'Deactivate':'Activate',k,x,'','Master change');save();view()}
+function master(){return `<h2>Items & Customers</h2><p style="color:var(--m)">Names can be changed or switched off, never deleted, so old entries stay valid. Owner only.</p>${mrow('sup','Suppliers')}${mrow('cust','Customers')}${mrow('locs','Warehouses / Godowns')}<div class="card"><b>Minimum stock (MT) by product</b><br>${['CR','HR','HRPO','GP/GI'].map(p=>`${p} <input type="number" value="${S.min[p]||0}" style="width:70px" onchange="setMin('${p}',this.value)"> `).join('')}</div>`}
+function addM(k,i){const x=v(i);if(!x)return;if(S[k].includes(x))return toast('Already exists',1);S[k].push(x);E('m',{op:'add',k,x});A('Master add',k,'',x);save();view()}
+function csvOut(w){const rows=w=='tx'?S.tx:filt().map(x=>({id:x.id,product:x.product,grade:x.grade,th:x.th,w:x.w,l:x.l,make:x.make,heat:x.heat,bundle:x.bundle,supplier:x.supplier,loc:x.loc,kg:x.phys,reserved:x.res,available:x.avail,cost_per_kg:x.cost.toFixed(2),value:Math.round(x.val),age:x.age,status:x.status}));
+const h=Object.keys(rows[0]||{}),s=[h.join(','),...rows.map(r=>h.map(k=>'"'+String(r[k]).replace(/"/g,'""')+'"').join(','))].join('\n');
+const d=document.createElement('div');d.className='card';d.innerHTML='<b>CSV – copy & paste into Excel</b><br><textarea style="width:100%;height:140px"></textarea>';d.querySelector('textarea').value=s;el('main').prepend(d);d.querySelector('textarea').select()}
+const SG=window.SG||{};let sb=null,cloud=false,role='owner',replaying=false,pend=[],lastEv=0,bad=0,OR=[];const CID=Math.random().toString(36).slice(2,8);
+const isOwner=()=>!cloud||role=='owner';
+function emptyS(){return{lots:[],tx:[],audit:[],jobs:[],sup:[],cust:[],locs:['Main Godown'],min:{},off:{}}}
+function setMin(p,x){S.min[p]=+x;E('m',{op:'min',p,v:+x});A('Min stock',p,'',x);save()}
+function E(kind,d){if(cloud&&!replaying)pend.push({kind,cid:CID,data:d})}
+async function flush(){if(!pend.length)return;const b=pend.splice(0);const{error}=await sb.from('events').insert(b);if(error){pend.unshift(...b);mode('⚠ NOT SAVED – '+error.message,1);toast('NOT SAVED: '+error.message,1)}else mode()}
+function mode(m,b){const x=el('mode');x.textContent=m||(cloud?'LIVE · '+me+' ('+role+')':'PRACTICE MODE · data stays in this browser only – do not enter real stock');x.style.background=b?'#c0392b':cloud?'var(--g)':'var(--o)';x.style.color=cloud||b?'#fff':'#000'}
+function renM(k,o,n){S[k]=S[k].map(x=>x==o?n:x);if(S.off[k+':'+o]){delete S.off[k+':'+o];S.off[k+':'+n]=1}
+if(k=='sup')S.lots.forEach(l=>{if(l.supplier==o)l.supplier=n});if(k=='locs')S.lots.forEach(l=>{if(l.loc==o)l.loc=n});
+S.tx.forEach(t=>{if((k=='sup'||k=='cust')&&t.party==o)t.party=n;if(k=='locs'){if(t.to==o)t.to=n;if(t.from==o)t.from=n}})}
+function apply(e){const d=e.data,k=e.kind;
+if(k=='lot'){if(S.lots.some(l=>l.id==d.id))return bad++;S.lots.push(d)}else if(k=='tx'){if(S.tx.some(t=>t.id==d.id))return bad++;S.tx.push(d)}
+else if(k=='audit')S.audit.push(d);else if(k=='job')S.jobs.push(d);
+else if(k=='m'){if(d.op=='add'){if(!S[d.k].includes(d.x))S[d.k].push(d.x)}else if(d.op=='rn')renM(d.k,d.o,d.n);else if(d.op=='off'){if(d.on)S.off[d.key]=1;else delete S.off[d.key]}else if(d.op=='min')S.min[d.p]=d.v}}
+async function pull(){const{data,error}=await sb.from('events').select('id,kind,cid,data').gt('id',lastEv).order('id').limit(1000);if(error){mode('⚠ Sync error: '+error.message,1);return 0}
+let ch=0;replaying=true;data.forEach(e=>{lastEv=e.id;if(e.cid==CID)return;apply(e);ch++});replaying=false;
+if(data.length==1000)ch+=await pull();if(bad)mode('⚠ '+bad+' entries clashed on ID – tell the admin, reload the page',1);return ch}
+function initCloud(){mode('Connecting…');const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';s.onerror=()=>mode('Cannot load sign-in library',1);
+s.onload=async()=>{sb=supabase.createClient(SG.url,SG.key);const{data}=await sb.auth.getSession();data.session?start(data.session):login()};document.head.appendChild(s)}
+function login(m){el('nav').innerHTML='';el('main').innerHTML=`<div class="card" style="max-width:360px;margin:40px auto"><h2>Satguru Steels – Sign in</h2><p style="color:var(--r)">${m||''}</p><input id="le" placeholder="Email" style="width:100%;margin-bottom:8px"><input id="lp" type="password" placeholder="Password" style="width:100%;margin-bottom:8px"><button class="p" onclick="doLogin()">Sign in</button></div>`}
+async function doLogin(){const{data,error}=await sb.auth.signInWithPassword({email:v('le'),password:el('lp').value});error?login(error.message):start(data.session)}
+async function start(ss){cloud=true;S=emptyS();const{data:p}=await sb.from('profiles').select('role,name').eq('id',ss.user.id).single();role=(p&&p.role)||'management';me=(p&&p.name)||ss.user.email;
+el('rst').style.display='none';el('lo').style.display='';el('usr').parentNode.style.display='none';await pull();pos();nav();mode();
+setInterval(async()=>{if((await pull())&&!['inward','move','recon','proc','master','open'].includes(tab))view()},20000)}
+const PN={CR:'CR',HR:'HR',HRPO:'HRPO','GP/GI':'GP/GI',GP:'GP/GI',GI:'GP/GI',GALVANISED:'GP/GI',GALVANIZED:'GP/GI',OTHER:'Other'};
+function pd(s){s=(s||'').trim();if(!s)return NOW;const m=s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})$/),d=m?new Date(+m[3],m[2]-1,+m[1]):/^\d{4}-\d{2}-\d{2}$/.test(s)?new Date(s):null;return d&&!isNaN(d)&&d.getTime()<=NOW?d.getTime():NaN}
+function openV(){return `<h2>Opening stock – paste from Excel</h2><div class="card"><p>Copy rows from Excel and paste below. Columns, in this order (header row optional):<br><b>Product | Grade | Thickness mm | Width mm | Length mm | Make | Weight in KG | Cost ₹/kg | Godown | Received date DD-MM-YYYY (optional) | Supplier (optional)</b><br><small>Weight must be in kg (10 MT = 10000). Cost is your landed cost per kg. If you don't know the received date, give your best estimate – it drives the ageing report. Length 0 = coil.</small></p><textarea id="o_t" style="width:100%;height:200px"></textarea><br><button class="p" onclick="oCheck()">Check rows</button><div id="o_r"></div></div>`}
+function oCheck(){OR=[];v('o_t').split('\n').filter(x=>x.trim()).forEach((ln,i)=>{const c=ln.replace(/\r/,'').split(ln.includes('\t')?'\t':',').map(x=>x.trim());
+const pr=PN[(c[0]||'').toUpperCase()],th=parseFloat(c[2]),w=parseFloat(c[3]),l=parseFloat(c[4])||0,kg=parseFloat(c[6]),co=parseFloat(c[7]),dd=pd(c[9]),e=[];
+if(i==0&&!pr&&isNaN(th))return;if(!pr)e.push('Product must be CR/HR/HRPO/GP/GI');if(!(th>0))e.push('Thickness');if(!(w>0))e.push('Width');if(!(kg>0))e.push('Weight');else if(kg<100)e.push('Weight looks like MT – use kg');if(!(co>0))e.push('Cost');if(!c[5])e.push('Make');if(isNaN(dd))e.push('Date');
+OR.push({n:i+1,pr,g:c[1]||'',th,w,l,mk:c[5]||'',kg,co,loc:c[8]||S.locs[0],date:dd,sup:c[10]||'Opening stock',e})});
+const kg=OR.reduce((a,r)=>a+(r.kg||0),0),val=OR.reduce((a,r)=>a+(r.kg*r.co||0),0),b=OR.filter(r=>r.e.length).length;
+el('o_r').innerHTML=`<p><b>${OR.length}</b> rows · ${mt(kg)} MT · cost ${inr(val)} · <b style="color:var(--${b?'r':'g'})">${b?b+' rows need fixing – correct them in Excel and paste again':'all rows OK'}</b></p><div class="w"><table><tr><th>#<th>Product<th>Grade<th>Th<th>W×L<th>Make<th class=n>kg<th class=n>₹/kg<th>Godown<th>Received<th>Check</tr>${OR.map(r=>`<tr><td>${r.n}<td>${r.pr||'?'}<td>${r.g}<td>${r.th}<td>${r.w}×${r.l}<td>${r.mk}<td class=n>${r.kg}<td class=n>${r.co}<td>${r.loc}<td>${isNaN(r.date)?'?':dt(r.date)}<td style="color:var(--${r.e.length?'r':'g'})">${r.e.length?r.e.join(', '):'OK'}</tr>`).join('')}</table></div>${!b&&OR.length?(S.tx.some(t=>t.type=='OPENING')?'<label><input type="checkbox" id="o_c"> Opening stock was already posted – post again (this ADDS to stock)</label><br>':'')+`<button class="p" onclick="oPost()">Post ${OR.length} rows as opening stock</button>`:''}`}
+function oPost(){if(!OR.length||OR.some(r=>r.e.length))return toast('Fix the errors first',1);if(S.tx.some(t=>t.type=='OPENING')&&!(el('o_c')&&el('o_c').checked))return toast('Tick the box to confirm posting again',1);
+OR.forEach(r=>{if(!S.locs.includes(r.loc)){S.locs.push(r.loc);E('m',{op:'add',k:'locs',x:r.loc})}if(!S.sup.includes(r.sup)){S.sup.push(r.sup);E('m',{op:'add',k:'sup',x:r.sup})}
+const id=addLot({product:r.pr,grade:r.g,th:r.th,w:r.w,l:r.l,make:r.mk,supplier:r.sup,inv:'OPENING',date:r.date,loc:r.loc,cost:r.co,type:r.l?'bundle':'coil'});T('OPENING',id,r.kg,{ts:r.date+1,to:r.loc,party:r.sup,ref:'OPENING',rem:'Day-0 opening stock'})});
+A('Opening stock',OR.length+' lines',0,OR.reduce((a,r)=>a+r.kg,0)+' kg','Day-0 import');const n=OR.length;OR=[];save();pos();toast(n+' opening lines posted');go('stock')}
+boot();
+</script></body></html>
