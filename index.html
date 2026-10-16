@@ -87,7 +87,7 @@ const PRED={all:'phys>0',a30:'phys>0&&age>30',a60:'phys>0&&age>60',a90:'phys>0&&
 let G={cond:'',form:'',prod:'',th:'',make:'',grade:'',loc:'',per:30,m:'val'};
 const GM=[['cond','cond'],['form','form'],['prod','product'],['th','th'],['make','make'],['grade','grade'],['loc','loc']];
 const SEC=[['OVERVIEW',[['mgmt','Dashboard']]],['INVENTORY',[['stock','Stock'],['find','What Do I Have?'],['jw','Jobwork Material (customer-owned)'],['jo','Out with Job Workers']]],['TRANSACTIONS',[['inward','Add Purchase'],['move','Dispatch / Reserve / Transfer'],['recon','Stock Correction'],['cond','Mark Rusted / Damaged'],['open','Opening Stock (paste from Excel)']]],['ANALYSIS',[['age','Ageing & Valuation'],['alerts','Needs Attention']]],['ADMIN',[['master','Items & Customers'],['ledger','Stock Movements & Audit'],['proc','Processing']]]];
-function nav(){el('nav').innerHTML='<div class="brand">Satguru Steels</div>'+SEC.filter(([h])=>!(cloud&&role=='management'&&h=='TRANSACTIONS')).map(([h,a])=>`<div class="sh">${h}</div>`+a.map(([k,n])=>`<button class="${k==tab?'on':''}" onclick="go('${k}')">${n}${k=='alerts'?' ('+alerts().length+')':''}</button>`).join('')).join('');view()}
+function nav(){el('nav').innerHTML='<div class="brand">Satguru Steels<small style="display:block;font-weight:400;font-size:11px;color:var(--m)">Build '+BUILD+'</small></div>'+SEC.filter(([h])=>!(cloud&&role=='management'&&h=='TRANSACTIONS')).map(([h,a])=>`<div class="sh">${h}</div>`+a.map(([k,n])=>`<button class="${k==tab?'on':''}" onclick="go('${k}')">${n}${k=='alerts'?' ('+alerts().length+')':''}</button>`).join('')).join('');view()}
 const gp=()=>GM.map(([g,k])=>G[g]?`&&String(r.${k})==${JSON.stringify(String(G[g]))}`:'').join('');
 const gOk=x=>GM.every(([g,k])=>!G[g]||String(x[k])==String(G[g]));
 function ser(){const N=G.per>30?30:Math.max(G.per,7),span=G.per*D,st=NOW-span,C={};S.lots.forEach(l=>{if(gOk({...l,form:l.form||'Full sheet',cond:l.cond||'Prime'})&&l.own!='Jobwork')C[l.id]=l.cost});
@@ -194,6 +194,7 @@ function fnd(){const m={ff:'form',fp:'product',fg:'grade',ft:'th',fw:'w',fl:'l',
 const kg=r.reduce((a,x)=>a+x.phys,0),rs=r.reduce((a,x)=>a+x.res,0),val=r.reduce((a,x)=>a+x.val,0);
 el('fr').innerHTML=`<div class="grid"><div class="k"><small>Available MT</small><b>${mt(kg-rs)}</b></div><div class="k"><small>Reserved MT</small><b>${mt(rs)}</b></div><div class="k"><small>Total MT</small><b>${mt(kg)}</b></div><div class="k"><small>Bundles</small><b>${r.length}</b></div><div class="k"><small>Avg cost ₹/kg</small><b>${kg?(val/kg).toFixed(2):'-'}</b></div><div class="k"><small>Avg age (d)</small><b>${kg?(r.reduce((a,x)=>a+x.age*x.phys,0)/kg).toFixed(0):'-'}</b></div></div>`+stkTbl(r,kg,val)}
 let PRL=[],PRN=0,LASTP='';
+const BUILD='16-Oct-B (godown greys out for job worker)';
 const makesL=()=>[...new Set(['Tata','JSW','AM/NS','Bokaro New Mill','Bokaro Old Mill',...S.lots.map(l=>l.make).filter(Boolean),'Other'])];
 const gradesL=()=>[...new Set(S.lots.map(l=>l.grade).filter(Boolean))];
 const gv=(id,f)=>{const e=el('pr_'+id+'_'+f);return e&&e.value!=null?String(e.value).trim():''};
