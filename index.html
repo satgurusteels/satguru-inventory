@@ -360,12 +360,12 @@ const inKg=v('rb_in')?nv('rb_in'):x.phys;if(!(inKg>0)||inKg>x.phys)return toast(
 const ts=v('rb_d')?new Date(v('rb_d')).getTime()+36e5:Date.now();if(ts>NOW+864e5)return toast('Date cannot be in the future',1);if(x.outd&&ts<x.outd)return toast('Received date is before the sent date',1);
 const{id:_i,...cp}=S.lots.find(l=>l.id==x.id),g=v('rb_g'),job=v('rb_j')||'PJ';
 if(v('rb_a')=='undo'){const nid=addLot({...cp,loc:g,outw:'',outp:'',outd:0});T('RECLASS_OUT',x.id,inKg,{ts,ref:job,rem:'Brought back unprocessed to '+g+' ('+nid+')'});T('RECLASS_IN',nid,inKg,{ts:ts+1,ref:job,from:x.loc,to:g,rem:'Back from '+x.outw+' unprocessed'});A('Receive back',x.id,x.outw,g+' '+inKg+' kg unprocessed → '+nid,job);save();pos();toast(inKg+' kg brought back unprocessed ('+nid+')');return view()}
-const o=nv('rb_out'),sc=nv('rb_s');if(!(o>0))return toast('Enter the finished weight received',1);if(o+sc>inKg)return toast('Finished + scrap cannot be more than the material sent ('+inKg+' kg)',1);
+const o=nv('rb_out'),sc=nv('rb_s');if(!(o>0))return toast('Enter the finished weight received',1);const gain=o+sc-inKg;if(gain>inKg*0.1)return toast('Finished + scrap is '+gain.toFixed(1)+' kg more than the material sent ('+inKg+' kg) – please check the figures',1);if(gain>0&&!geAsk('You are receiving '+(+gain.toFixed(3))+' kg MORE than the '+inKg+' kg sent (weighing difference). Book the extra as a weighing gain?'))return;
 const chg=nv('rb_c'),fr=nv('rb_f'),cost=(x.cost*inKg+chg*inKg+fr)/o,loss=inKg-o-sc,lp=loss/inKg*100;
 if(!v('rb_in')&&lp>10)return toast('You are receiving '+o+' kg of '+inKg+' kg. If the rest is still with '+x.outw+', type the kg this receipt covers (about '+Math.round(o*1.02)+') in "Material used" – otherwise the rest is booked as loss.',1);
 const fw=v('rb_fw')!==''?nv('rb_fw'):cp.w,fl=v('rb_fl')!==''?nv('rb_fl'):cp.l;if(!(fw>0)||fl<0)return toast('Finished width / length look wrong',1);const ffm=v('rb_fm')||(fl>0&&!cp.l?'Full sheet':cp.form);
 const nid=addLot({...cp,product:v('rb_p')||x.product,w:fw,l:fl,form:ffm,type:fl>0?'bundle':cp.type,loc:g,cost,parent:x.id,outw:'',outp:'',outd:0,bundle:''});
-T('PROC_IN',x.id,inKg,{ts,ref:job,rem:x.outp+' by '+x.outw+' → '+nid+'; received '+o+' kg; scrap '+sc+'; loss '+loss+' kg'});T('PROC_OUT',nid,o,{ts:ts+1,ref:job,from:x.id,to:g,rem:x.outp+' by '+x.outw+', from '+x.id});
+T('PROC_IN',x.id,inKg,{ts,ref:job,rem:x.outp+' by '+x.outw+' → '+nid+'; received '+o+' kg; scrap '+sc+(loss<0?'; weighing gain '+(-loss).toFixed(3)+' kg':'; loss '+loss+' kg')});T('PROC_OUT',nid,o,{ts:ts+1,ref:job,from:x.id,to:g,rem:x.outp+' by '+x.outw+', from '+x.id});
 const j={job,coil:x.id,out:nid,fw,fl,inKg,fin:o,scrap:sc,loss,yld:o/inKg*100,scrapPct:sc/inKg*100,lossPct:lp,mach:x.outw,op:'',ts,worker:x.outw,process:x.outp,charge:chg,thr:3};S.jobs.push(j);E('job',j);
 A('Receive back',x.id,x.outw,o+' kg as '+(v('rb_p')||x.product)+' → '+nid+', cost ₹'+cost.toFixed(2)+'/kg',job+(lp>3?' – high loss '+lp.toFixed(1)+'%':''));save();pos();toast(o+' kg received as '+nid+' at ₹'+cost.toFixed(2)+'/kg'+(lp>3?' – loss '+lp.toFixed(1)+'% is high':''));view()}
 function find(){const L=RO().filter(x=>x.phys>0),u=k=>[...new Set(L.map(x=>x[k]))].sort();
@@ -374,7 +374,7 @@ function fnd(){const m={ff:'form',fp:'product',fg:'grade',ft:'th',fw:'w',fl:'l',
 const kg=r.reduce((a,x)=>a+x.phys,0),rs=r.reduce((a,x)=>a+x.res,0),val=r.reduce((a,x)=>a+x.val,0);
 el('fr').innerHTML=`<div class="grid"><div class="k"><small>Available MT</small><b>${mt(kg-rs)}</b></div><div class="k"><small>Reserved MT</small><b>${mt(rs)}</b></div><div class="k"><small>Total MT</small><b>${mt(kg)}</b></div><div class="k"><small>Bundles</small><b>${r.length}</b></div><div class="k"><small>Avg cost ₹/kg</small><b>${kg?(val/kg).toFixed(2):'-'}</b></div><div class="k"><small>Avg age (d)</small><b>${kg?(r.reduce((a,x)=>a+x.age*x.phys,0)/kg).toFixed(0):'-'}</b></div></div>`+stkTbl(r,kg,val)}
 let PRL=[],PRN=0,LASTP='';
-const BUILD='25-Nov-B (date-aware allocation)';
+const BUILD='28-Nov-A (weighing gain on receive-back)';
 const makesL=()=>[...new Set([...MK0,...S.lots.map(l=>cmk(l.make)).filter(Boolean),'Other'])];
 const gradesL=()=>[...new Set(S.lots.map(l=>l.grade).filter(Boolean))];
 const gv=(id,f)=>{const e=el('pr_'+id+'_'+f);return e&&e.value!=null?String(e.value).trim():''};
